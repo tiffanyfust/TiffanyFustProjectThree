@@ -4,6 +4,100 @@
     font-family: 'Bebas Neue', cursive;
 */
 
+/* Colors:
+  light teal-- color: #65CCB8;
+  light green-- color: #57ba98;
+  dark green-- color: #3b945e;
+*/
+
+body {
+  overflow-x: hidden;
+  background-color: #65CCB8;
+  color: #f2f2f2;
+}
+
+.wrapper {
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+/* Text styling */
+
 h1 {
   font-family: 'Bebas Neue', cursive;
+}
+
+
+/* Logo Styling */
+
+.logo {
+  display: flex;
+  justify-content: flex-start;
+}
+
+/* Header Styling */
+
+header {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.headerContent {
+  display: flex;
+  height: 80vh;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.headerText {
+  width: 50%;
+}
+
+.headerIcon {
+  text-align: center;
+}
+
+
+
+/* Form Styling */
+
+form::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: -200px;
+  height: 1400px;
+  width: 700px;
+  border-radius: 700px 0 0 700px;
+  background-color: #182628;
+  z-index: -1;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.inputFields {
+  display: flex;
+}
+
+.inputField {
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Recipe List styling */
+
+ul {
+  display: flex;
+  flex: 3;
+  flex-wrap: wrap;
+}
+
+li {
+  flex: 1;
 }
