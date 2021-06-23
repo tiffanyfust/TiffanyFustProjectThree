@@ -2,7 +2,7 @@ const RecipeResults = (props) => {
     
     return (
         <ul>
-            {props.recipeObj.map(recipeObj => {
+            {props.recipeObj.map((recipeObj) => {
                 return (
                     <li>
                         <div className="imgContainer">

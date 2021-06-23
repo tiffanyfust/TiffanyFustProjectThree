@@ -1,6 +1,6 @@
 import {useState} from 'react';
 
-function SearchForm(e) {
+function SearchForm(props) {
     const [mealSelect, setMealSelect] = useState("placeholder");
     const [cuisineSelect, setCuisineSelect] = useState("placeholder");
 
@@ -13,7 +13,7 @@ function SearchForm(e) {
     }
 
     return (
-        <form onSubmit = {e, mealSelect, cuisineSelect}>
+        <form onSubmit = {(e) => {props.findRecipes(mealSelect, cuisineSelect)}}>
                 <div className="inputFields">
                   <div className="inputField">
                     <label htmlFor="mealType">Meal Type:</label>
