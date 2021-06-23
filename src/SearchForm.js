@@ -1,11 +1,24 @@
-function SearchForm() {
+import {useState} from 'react';
+
+function SearchForm(e) {
+    const [mealSelect, setMealSelect] = useState("placeholder");
+    const [cuisineSelect, setCuisineSelect] = useState("placeholder");
+
+    const updateMealFilter = (e) => {
+        setMealSelect(e.target.value);
+    }
+
+    const updateCuisineFilter = (e) => {
+        setCuisineSelect(e.target.value);
+    }
+
     return (
-        <form>
+        <form onSubmit = {e, mealSelect, cuisineSelect}>
                 <div className="inputFields">
                   <div className="inputField">
                     <label htmlFor="mealType">Meal Type:</label>
-                    <select id="mealType" name="mealType">
-                      <option value="placeholder">Select option</option>
+                    <select id="mealType" name="mealType" value={mealSelect} onChange={updateMealFilter}>
+                      <option value="placeholder" disabled>Select option</option>
                       <option value="Breakfast">Breakfast</option>
                       <option value="Lunch">Lunch</option>
                       <option value="Dinner">Dinner</option>
@@ -15,8 +28,8 @@ function SearchForm() {
                   </div>
                   <div className="inputField">
                     <label htmlFor="cuisineType">Cuisine Type:</label>
-                    <select name="cuisineType">
-                      <option value="placeholder">Select option</option>
+                    <select id="cuisineType" name="cuisineType" value={cuisineSelect} onChange={updateCuisineFilter}>
+                      <option value="placeholder" disabled>Select option</option>
                       <option value="American">American</option>
                       <option value="Asian">Asian</option>
                       <option value="British">British</option>

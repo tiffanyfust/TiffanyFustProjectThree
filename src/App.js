@@ -6,7 +6,34 @@ import './App.css';
 
 
 function App() {
+  const [allRecipes, setAllRecipes] = useState([]);
+  // const [filteredRecipes, setFilteredRecipes] = useState([]);
 
+// get recipes from API
+  useEffect(() => {
+    axios({
+      url: "https://api.edamam.com/api/recipes/v2",
+      method: "GET",
+      dataResponse: "json",
+      params: {
+        app_id: "27934d8b",
+        app_key: "4a9e2f43cc72130eed5795df71599e7c",
+        type: "public",
+        mealType: "Dinner",
+        cuisineType: "Chinese",
+      },
+    }).then((response) => {
+      const hits = response.data.hits;
+      setAllRecipes(hits);
+    })
+  }, [])
+
+// // console.log(allRecipes)
+
+//   const findRecipes = (e, mealSelect, cuisineSelect) => {
+//     e.preventDefault();
+//     const filteredRecipes = [...allRecipes];
+//   }
 
   return (
     <div className="App">
@@ -24,21 +51,21 @@ function App() {
               <SearchForm/>
             </div>
           </section>
-          <div class="headerIcon">
+          <div className="headerIcon">
             <i className="fas fa-arrow-circle-down fa-3x"></i>
           </div>
         </div>
       </header>
       <main>
-        <div className="wrapper">
-          <ul id="recipeResults">
-            <RecipeResults/>
-          </ul>
-        </div>
+        <section className="recipeResults">
+          <div className="wrapper">
+            <RecipeResults recipeObj={allRecipes}/>
+          </div>
+        </section>
       </main>
 
       <footer>
-        <p>Created by <a href="https://tiffanyfust.com/" title="Tiffany Fust's Portfolio Site" target="_blank">Tiffany Fust</a> at <a href="https://junocollege.com/" title="The Juno College Website" target="_blank">Juno College</a></p>
+        <p>Created by <a href="https://tiffanyfust.com/" title="Tiffany Fust's Portfolio Site" target="_blank" rel="noreferrer">Tiffany Fust</a> at <a href="https://junocollege.com/" title="The Juno College Website" target="_blank" rel="noreferrer">Juno College</a></p>
       </footer>
     </div>
   );
