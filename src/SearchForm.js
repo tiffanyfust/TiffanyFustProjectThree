@@ -1,9 +1,10 @@
 import {useState} from 'react';
 
 function SearchForm(props) {
-    const [mealSelect, setMealSelect] = useState("placeholder");
-    const [cuisineSelect, setCuisineSelect] = useState("placeholder");
+    const [mealSelect, setMealSelect] = useState("");
+    const [cuisineSelect, setCuisineSelect] = useState("");
 
+// updating state with user selection 
     const updateMealFilter = (e) => {
         setMealSelect(e.target.value);
     }
@@ -12,13 +13,14 @@ function SearchForm(props) {
         setCuisineSelect(e.target.value);
     }
 
+// mealType and cuisineType selection form
     return (
-        <form onSubmit = {(e) => {props.findRecipes(mealSelect, cuisineSelect)}}>
+        <form onSubmit = {(e) => {props.findRecipes(e, mealSelect, cuisineSelect)}}>
                 <div className="inputFields">
                   <div className="inputField">
                     <label htmlFor="mealType">Meal Type:</label>
-                    <select id="mealType" name="mealType" value={mealSelect} onChange={updateMealFilter}>
-                      <option value="placeholder" disabled>Select option</option>
+                    <select required id="mealType" name="mealType"  value={mealSelect} onChange={updateMealFilter}>
+                      <option value="" disabled>Select option</option>
                       <option value="Breakfast">Breakfast</option>
                       <option value="Lunch">Lunch</option>
                       <option value="Dinner">Dinner</option>
@@ -28,8 +30,8 @@ function SearchForm(props) {
                   </div>
                   <div className="inputField">
                     <label htmlFor="cuisineType">Cuisine Type:</label>
-                    <select id="cuisineType" name="cuisineType" value={cuisineSelect} onChange={updateCuisineFilter}>
-                      <option value="placeholder" disabled>Select option</option>
+                    <select required id="cuisineType" name="cuisineType" value={cuisineSelect} onChange={updateCuisineFilter}>
+                      <option value="" disabled>Select option</option>
                       <option value="American">American</option>
                       <option value="Asian">Asian</option>
                       <option value="British">British</option>
