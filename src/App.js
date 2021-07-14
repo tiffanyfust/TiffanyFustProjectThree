@@ -46,7 +46,7 @@ function App() {
       <header>
         <div className="wrapper">
           <div className="logo">
-            <h2>Eat This</h2>
+            <h2 className="logo">Mealspiration</h2>
           </div>
           <section className="headerContent">
             <div className="headerText">
