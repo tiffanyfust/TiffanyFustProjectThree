@@ -52,6 +52,11 @@ h2 {
   color: #182628;
 }
 
+.logo {
+  font-size: 1.8rem;
+  font-family: 'Bebas Neue', cursive;
+}
+
 label,
 p {
   font-size: 1rem;
