@@ -13,6 +13,18 @@ function SearchForm(props) {
         setCuisineSelect(e.target.value);
     }
 
+//scrolls to results when form button is clicked
+    const scrollResults = () => {
+      const body = document.querySelector('html');
+      const results = document.querySelector('#results');
+      const offset = results.offsetTop;
+
+    body.scroll({
+        top: offset,
+        behavior: 'smooth',
+    });
+    }
+
 // mealType and cuisineType selection form
     return (
         <form onSubmit = {(e) => {props.findRecipes(e, mealSelect, cuisineSelect)}}>
@@ -54,7 +66,7 @@ function SearchForm(props) {
                   </div>
                 </div>
 
-                <button type="submit" name="submit" value="submit">Find my next Meal</button>
+                <button type="submit" name="submit" value="submit" onClick={scrollResults}>Find my next Meal</button>
               </form>
     )
 }

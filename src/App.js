@@ -36,6 +36,7 @@ function App() {
     }).then((response) => {
       const hits = response.data.hits;
       setAllRecipes(hits);
+
     })
   }, [mealType, cuisineType])
 
@@ -63,7 +64,7 @@ function App() {
         </div>
       </header>
       <main>
-        <section className="recipeResults">
+        <section className="recipeResults" id="results">
           <div className="wrapper">
             <RecipeResults recipeObj={allRecipes}/>
           </div>
